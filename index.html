@@ -332,7 +332,8 @@
     display:flex;
     align-items:center;
     gap:22px;
-    padding:34px 0;
+    padding-top:34px;
+    padding-bottom:34px;
     flex-wrap:wrap;
   }
   .banner-domicilio-icono{
@@ -448,8 +449,43 @@
     border:1px solid rgba(244,180,0,0.2);
     height:100%;
     min-height:320px;
+    background:radial-gradient(circle at 50% 38%, #262220, var(--asphalt));
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    padding:36px;
+    text-align:center;
   }
-  .mapa-envoltura iframe{ width:100%; height:100%; min-height:320px; border:0; filter:grayscale(0.3) contrast(1.05); }
+  .radar{
+    position:relative;
+    width:78px; height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--red);
+    margin-bottom:4px;
+  }
+  .radar svg{ width:32px; height:32px; position:relative; z-index:2; }
+  .radar::before, .radar::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:1.5px solid var(--red);
+    opacity:0.6;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .radar::before{ animation:radar-pulso 2.4s ease-out infinite; }
+    .radar::after{ animation:radar-pulso 2.4s ease-out infinite 1.2s; }
+  }
+  @keyframes radar-pulso{
+    0%{ transform:scale(0.55); opacity:0.7; }
+    100%{ transform:scale(2.3); opacity:0; }
+  }
+  .mapa-envoltura strong{ font-size:1.1rem; color:var(--paper); font-family:'Inter', sans-serif; }
+  .mapa-envoltura span{ font-family:'Space Mono', monospace; font-size:0.8rem; color:var(--chrome); }
 
   @media (max-width:800px){
     .contacto-grid{ grid-template-columns:1fr; }
@@ -597,26 +633,4 @@
 
       <div class="servicio-card">
         <div class="servicio-icono-marco">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="6" r="1"/><circle cx="17.2" cy="15" r="1"/><circle cx="6.8" cy="15" r="1"/></svg>
-        </div>
-        <h3>Frenos y suspensión</h3>
-        <p>Balatas, discos, amortiguadores y dirección.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="banner-domicilio">
-  <div class="contenedor banner-domicilio-interior">
-    <svg class="banner-domicilio-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="9" width="13" height="7" rx="1"/><path d="M14 11h4l3 3v2h-2"/><circle cx="6" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>
-    <div class="banner-domicilio-texto">
-      <h3>Servicio a domicilio</h3>
-      <p>¿No puedes venir al taller? Vamos nosotros a revisar tu carro donde estés.</p>
-    </div>
-  </div>
-</div>
-
-<section class="horario" id="horario">
-  <div class="contenedor">
-  
+          <svg viewBox="0 0 24 24" fill="no
