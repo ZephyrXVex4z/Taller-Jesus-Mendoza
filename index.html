@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesús Mendoza | Mecánico Profesional</title>
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-primario: #1a1a2e;
+            --color-secundario: #e94560;
+            --color-acento: #16213e;
+            --color-texto: #333;
+            --color-claro: #f8f9fa;
+            --color-blanco: #ffffff;
+            --color-gris: #6c757d;
+            --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --borde-redondo: 12px;
+            --transicion: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--color-texto);
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header / Hero */
+        header {
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-acento) 100%);
+            color: var(--color-blanco);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-icono {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--color-secundario);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header h1 span {
+            color: var(--color-secundario);
+        }
+
+        .subtitulo {
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .header-contacto-rapido {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: var(--transicion);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-llamar {
+            background-color: var(--color-secundario);
+            color: var(--color-blanco);
+        }
+
+        .btn-llamar:hover {
+            background-color: #d63851;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.4);
+        }
+
+        .btn-whatsapp-header {
+            background-color: #25D366;
+            color: var(--color-blanco);
+        }
+
+        .btn-whatsapp-header:hover {
+            background-color: #1fb855;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Navegación */
+        nav {
+            background-color: var(--color-blanco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        nav a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: var(--color-texto);
+            font-weight: 500;
+            transition: var(--transicion);
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover {
+            color: var(--color-secundario);
+            border-bottom-color: var(--color-secundario);
+            background-color: #fef0f3;
+        }
+
+        /* Secciones */
+        section {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 50px;
+            color: var(--color-primario);
+            position: relative;
+        }
+
+        .seccion-titulo::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-secundario);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Servicios */
+        #servicios {
+            background-color: var(--color-blanco);
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .servicio-card {
+            background: var(--color-claro);
+            padding: 35px 25px;
+            border-radius: var(--borde-redondo);
+            text-align: center;
+            transition: var(--transicion);
+            border: 1px solid #e0e0e0;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra);
+            border-color: var(--color-secundario);
+        }
+
+        .servicio-icono {
+            font-size: 45px;
+            color: var(--color-secundario);
+            margin-bottom: 20px;
+        }
+
+        .servicio-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--color-primario);
+        }
+
+        .servicio-card p {
+            color: var(--color-gris);
+            font-size: 0.95em;
+        }
+
+        /* Sobre mí / Información */
+        #info {
+            background-color: #f9f9f9;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .info-texto h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--color-primario);
+        }
+
+        .info-texto p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .info-detalles {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .info-detalles li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-detalles i {
+            color: var(--color-secundario);
+            width: 25px;
+            text-align: center;
+        }
+
+        .info-imagen {
+            background-color: #ddd;
+            border-radius: var(--borde-redondo);
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: var(--color-gris);
+            background: linear-gradient(135deg, #e0e0e0, #cccccc);
+        }
+
+        /* Horario */
+        #horario {
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            text-align: center;
+        }
+
+        #horario .seccion-titulo {
+            color: var(--color-blanco);
+        }
+
+        .horario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .horario-dia {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: var(--borde-redondo);
+        }
+
+        .horario-dia h4 {
+            color: var(--color-secundario);
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .horario-dia.domingo {
+            opacity: 0.7;
+        }
+
+        .horario-dia.domingo h4 {
+            color: #ff8a9e;
+        }
+
+        /* Contacto - 4 columnas simétricas */
+        #contacto {
+            background-color: var(--color-blanco);
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            text-align: center;
+        }
+
+        .contacto-card {
+            padding: 30px 20px;
+            border-radius: var(--borde-redondo);
+            background-color: var(--color-claro);
+            transition: var(--transicion);
+        }
+
+        .contacto-card:hover {
+            box-shadow: var(--sombra);
+        }
+
+        .contacto-card i {
+            font-size: 40px;
+            color: var(--color-secundario);
+            margin-bottom: 15px;
+        }
+
+        .contacto-card h4 {
+            margin-bottom: 10px;
+            color: var(--color-primario);
+        }
+
+        .contacto-card a {
+            color: var(--color-secundario);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contacto-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+
+        footer span {
+            color: var(--color-secundario);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contacto-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .subtitulo {
+                font-size: 1.1em;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-imagen {
+                height: 200px;
+                order: -1;
+            }
+            section {
+                padding: 50px 15px;
+            }
+            .seccion-titulo {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-icono">
+                <i class="fas fa-tools"></i>
+            </div>
+            <h1>Jesús <span>Mendoza</span></h1>
+            <p class="subtitulo">Mecánico Profesional · Servicio a Domicilio</p>
+            <p style="margin-bottom: 25px; font-size: 1.1em;">
+                <i class="fas fa-map-marker-alt"></i> Villa Residencial del Real, Cd. Juárez, Chihuahua
+            </p>
+            <div class="header-contacto-rapido">
+                <a href="tel:+526562240141" class="btn-header btn-llamar">
+                    <i class="fas fa-phone-alt"></i> Llamar ahora
+                </a>
+                <a href="https://wa.me/5216562240141?text=Hola%20Jesús,%20quiero%20información%20sobre%20tus%20servicios" 
+                   class="btn-header btn-whatsapp-header" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="nav-container">
+            <a href="#servicios">Servicios</a>
+            <a href="#info">Conóceme</a>
+            <a href="#horario">Horario</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <h2 class="seccion-titulo">Nuestros Servicios</h2>
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <div class="servicio-icono"><i class="fas fa-clipboard-check"></i></div>
+                <h3>Mantenimiento General</h3>
+                <p>Cambio de aceite, filtros, bujías y revisión completa para mantener tu auto en óptimas condiciones.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icono"><i class="fas fa-car-engine"></i></div>
+                <h3>Diagnóstico y Reparación de Motores</h3>
+                <p>Diagnóstico preciso con escáner y reparación de motor a gasolina.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icono"><i class="fas fa-bolt"></i></div>
+                <h3>Sistema Eléctrico y Electrónico</h3>
+                <p>Reparación de marcha, alternador, cableado, luces y sistemas electrónicos del vehículo.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icono"><i class="fas fa-cogs"></i></div>
+                <h3>Transmisión y Embrague</h3>
+                <p>Servicio y reparación de transmisiones automáticas y estándar, cambio de clutch.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icono"><i class="fas fa-brake-warning"></i></div>
+                <h3>Frenos y Suspensión</h3>
+                <p>Revisión y reparación de balatas, discos, amortiguadores y sistema de suspensión.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información -->
+    <section id="info">
+        <h2 class="seccion-titulo">¿Por qué elegir a Jesús Mendoza?</h2>
+        <div class="info-grid">
+            <div class="info-texto">
+                <h3>Experiencia y Confianza</h3>
+                <p>
+                    Con años de experiencia en el ramo automotriz, ofrezco un servicio honesto, de calidad y a precios justos. 
+                    Mi prioridad es que tu vehículo quede en perfectas condiciones y que tú te sientas seguro al volante.
+                </p>
+                <p>
+                    <strong>Servicio a domicilio disponible</strong> en Villa Residencial del Real y zonas aledañas de Ciudad Juárez.
+                    ¡No batalles, yo voy a ti!
+                </p>
+                <ul class="info-detalles">
+                    <li><i class="fas fa-check-circle"></i> Diagnóstico sincero y sin compromiso</li>
+                    <li><i class="fas fa-check-circle"></i> Refacciones de calidad</li>
+                    <li><i class="fas fa-check-circle"></i> Atención personalizada</li>
+                    <li><i class="fas fa-check-circle"></i> Servicio a domicilio</li>
+                </ul>
+            </div>
+            <div class="info-imagen">
+                <i class="fas fa-user-cog"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horario -->
+    <section id="horario">
+        <h2 class="seccion-titulo">Horario de Atención</h2>
+        <div class="horario-grid">
+            <div class="horario-dia">
+                <h4>Lunes a Viernes</h4>
+                <p>9:00 AM - 6:00 PM</p>
+            </div>
+            <div class="horario-dia">
+                <h4>Sábado</h4>
+                <p>9:00 AM - 3:00 PM</p>
+            </div>
+            <div class="horario-dia domingo">
+                <h4>Domingo</h4>
+                <p>Cerrado</p>
+            </div>
+        </div>
+        <p style="margin-top: 30px; opacity: 0.8;">
+            <i class="fas fa-truck"></i> Servicio a domicilio dentro del horario establecido
+        </p>
+    </section>
+
+    <!-- Contacto - 4 columnas simétricas -->
+    <section id="contacto">
+        <h2 class="seccion-titulo">Contáctanos</h2>
+        <div class="contacto-grid">
+            <div class="contacto-card">
+                <i class="fas fa-phone-alt"></i>
+                <h4>Teléfono</h4>
+                <p><a href="tel:+526562240141">656 224 0141</a></p>
+                <p style="font-size: 0.85em; color: var(--color-gris);">Llámanos directo</p>
+            </div>
+            <div class="contacto-card">
+                <i class="fab fa-whatsapp"></i>
+                <h4>WhatsApp</h4>
+                <p><a href="https://wa.me/5216562240141?text=Hola%20Jesús,%20me%20gustaría%20consultar%20sobre%20tus%20servicios%20mecánicos" target="_blank" rel="noopener noreferrer">Enviar mensaje</a></p>
+                <p style="font-size: 0.85em; color: var(--color-gris);">Chatea con nosotros</p>
+            </div>
+            <div class="contacto-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Ubicación</h4>
+                <p>Villa Residencial del Real</p>
+                <p>Cd. Juárez, Chihuahua</p>
+            </div>
+            <div class="contacto-card">
+                <i class="fas fa-home"></i>
+                <h4>Servicio a Domicilio</h4>
+                <p>Vamos a tu ubicación</p>
+                <p style="font-size: 0.85em; color: var(--color-gris);">En CD. Juárez</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 <span>Jesús Mendoza</span> · Mecánico Profesional · Todos los derechos reservados</p>
+        <p style="margin-top: 5px;">Villa Residencial del Real, Cd. Juárez, Chihuahua</p>
+    </footer>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/YOUR_TAWKTO_PROPERTY_ID/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!-- 
+    IMPORTANTE: Reemplaza 'YOUR_TAWKTO_PROPERTY_ID' en la línea de arriba 
+    con tu ID de propiedad de Tawk.to.
+    Ejemplo: s1.src='https://embed.tawk.to/665566789a809f19h2d3a1c/default';
+    -->
+
+</body>
+          </html>
